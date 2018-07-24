@@ -19,7 +19,7 @@ def roll_dice(num_rolls, dice=six_sided):
     # These assert statements ensure that num_rolls is a positive integer.
     assert type(num_rolls) == int, 'num_rolls must be an integer.'
     assert num_rolls > 0, 'Must roll at least once.'
-    "*** YOUR CODE HERE ***"
+    
     i, total = 0, 0
     x = False
     while i < num_rolls:
@@ -47,7 +47,7 @@ def take_turn(num_rolls, opponent_score, dice=six_sided):
     assert num_rolls >= 0, 'Cannot roll a negative number of dice.'
     assert num_rolls <= 10, 'Cannot roll more than 10 dice.'
     assert opponent_score < 100, 'The game should be over.'
-    "*** YOUR CODE HERE ***"
+  
     if num_rolls != 0:
         return roll_dice(num_rolls, dice)
     else: 
@@ -59,7 +59,7 @@ def select_dice(score, opponent_score):
     """Select six-sided dice unless the sum of SCORE and OPPONENT_SCORE is a
     multiple of 7, in which case select four-sided dice (Hog wild).
     """
-    "*** YOUR CODE HERE ***"
+    
     if (score+opponent_score)%7==0:
         return four_sided
     return six_sided
@@ -173,7 +173,7 @@ def make_averaged(fn, num_samples=10000):
     - In the other, the player rolls a 5 and 6, scoring 11.
     Thus, the average value is 6.0.
     """
-    "*** YOUR CODE HERE ***"
+    
     def ave_args(*args):
         i = 1
         tot = 0
@@ -192,7 +192,7 @@ def max_scoring_num_rolls(dice=six_sided):
     >>> max_scoring_num_rolls(dice)
     10
     """
-    "*** YOUR CODE HERE ***"
+    
     num_rolls = 1
     best_roll = 1
     avg = 0
@@ -249,7 +249,7 @@ def bacon_strategy(score, opponent_score, margin=8, num_rolls=5):
     """This strategy rolls 0 dice if that gives at least MARGIN points,
     and rolls NUM_ROLLS otherwise.
     """
-    "*** YOUR CODE HERE ***"
+    
     a = bacon(opponent_score)
     if a >= margin:
         return 0
@@ -262,7 +262,7 @@ def swap_strategy(score, opponent_score, margin=8, num_rolls=5):
     0 dice if that gives at least MARGIN points and rolls
     NUM_ROLLS otherwise.
     """
-    "*** YOUR CODE HERE ***"
+    
     a = bacon(opponent_score)
     if score + a == 2 * opponent_score:
         return num_rolls
@@ -273,11 +273,7 @@ def swap_strategy(score, opponent_score, margin=8, num_rolls=5):
 
 
 def final_strategy(score, opponent_score):
-    """Write a brief description of your final strategy.
-
-    *** YOUR DESCRIPTION HERE ***
-    """
-    "*** YOUR CODE HERE ***"
+   
     dice = select_dice
     a = bacon(opponent_score)
     c = (score + opponent_score) % 7
