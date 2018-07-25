@@ -39,17 +39,14 @@ def make_tweet(text, time, lat, lon):
 
 def tweet_text(tweet):
     """Return a string, the words in the text of a tweet."""
-    "*** YOUR CODE HERE ***"
     return tweet[0]
 
 def tweet_time(tweet):
     """Return the datetime representing when a tweet was posted."""
-    "*** YOUR CODE HERE ***"
     return tweet[1]
 
 def tweet_location(tweet):
     """Return a position representing a tweet's location."""
-    "*** YOUR CODE HERE ***"
     return make_position(tweet[2],tweet[3])
 
 # tweet data abstraction (B), represented as a function
@@ -67,7 +64,6 @@ def make_tweet_fn(text, time, lat, lon):
     122
     """
     # Please don't call make_tweet in your solution
-    "*** YOUR CODE HERE ***"
     def get(index):
         if index == 'text':
             return text
@@ -117,7 +113,6 @@ def extract_words(text):
     >>> extract_words('@(cat$.on^#$my&@keyboard***@#*')
     ['cat', 'on', 'my', 'keyboard']
     """
-    "*** YOUR CODE HERE ***"
     for i in range(len(text)):
         if text[i] in ascii_letters or text[i] == ' ':
             text = text
@@ -143,12 +138,10 @@ def make_sentiment(value):
     0
     """
     assert (value is None) or (-1 <= value <= 1), 'Bad sentiment value'
-    "*** YOUR CODE HERE ***"
     return value
 
 def has_sentiment(s):
     """Return whether sentiment s has a value."""
-    "*** YOUR CODE HERE ***"
     if s or s == 0:
         return True
     return False
@@ -156,7 +149,6 @@ def has_sentiment(s):
 def sentiment_value(s):
     """Return the value of a sentiment s."""
     assert has_sentiment(s), 'No sentiment value'
-    "*** YOUR CODE HERE ***"
     return s
 
 def get_word_sentiment(word):
@@ -193,7 +185,6 @@ def analyze_tweet_sentiment(tweet):
     >>> has_sentiment(analyze_tweet_sentiment(no_sentiment))
     False
     """
-    "*** YOUR CODE HERE ***"
     comment = tweet_words(tweet)
     sentiments = [get_word_sentiment(i) for i in comment]
     sentiment_values = [sentiment_value(x) for x in sentiments if has_sentiment(x)]
@@ -235,7 +226,6 @@ def find_centroid(polygon):
     >>> apply_to_all(float, find_centroid([p1, p2, p1])) # A zero-area polygon
     [1.0, 2.0, 0.0]
     """
-    "*** YOUR CODE HERE ***"
      # lat and lon of 1st position
     x_c = [latitude(x) for x in polygon]                                                                                                                                            
     y_c = [longitude(x) for x in polygon]
@@ -282,7 +272,6 @@ def find_state_center(polygons):
     >>> round(longitude(hi), 5)
     -156.21763
     """
-    "*** YOUR CODE HERE ***"
     centroids = [find_centroid(x) for x in polygons] #returns list of [Cx,Cy, area]'s
     i = 0
     Cxa = 0
@@ -335,7 +324,7 @@ def group_tweets_by_state(tweets):
     >>> tweet_string(california_tweets[0])
     '"welcome to san francisco" @ (38, -122)'
     """
-    "*** YOUR CODE HERE ***"
+
 
 def average_sentiments(tweets_by_state):
     """Calculate the average sentiment of the states by averaging over all
@@ -350,7 +339,7 @@ def average_sentiments(tweets_by_state):
     Arguments:
     tweets_by_state -- A dictionary from state names to lists of tweets
     """
-    "*** YOUR CODE HERE ***"
+
 
 ##########################
 # Command Line Interface #
